@@ -1,5 +1,6 @@
 import { Helmet } from 'react-helmet-async'
 import { useForm } from 'react-hook-form'
+import { toast } from 'sonner'
 import { z } from 'zod'
 
 import { Button } from '@/components/ui/button'
@@ -20,9 +21,14 @@ export function Login() {
   } = useForm<LoginForm>()
 
   async function handleLogin(data: LoginForm) {
-    console.log(data)
-    await new Promise((resolve) => setTimeout(resolve, 2000))
-    // TODO - Implement Login HTTP Request
+    try {
+      console.log(data)
+      await new Promise((resolve) => setTimeout(resolve, 2000))
+      // TODO - Implement Login HTTP Request
+      toast.success('We send an authentication link to your e-mail.')
+    } catch {
+      toast.error('Error, please contact your system administrator.')
+    }
   }
 
   return (
