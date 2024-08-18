@@ -1,3 +1,9 @@
 export function Footer() {
-  return <footer>Footer</footer>
+  const currentYear = new Date().getFullYear()
+
+  return (
+    <footer>
+      <span>Partner panel © Aromatherapy Shop - {currentYear}</span>
+    </footer>
+  )
 }
