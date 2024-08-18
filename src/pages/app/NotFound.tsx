@@ -5,11 +5,13 @@ import { Header } from '@/components/Header'
 
 export function NotFound() {
   return (
-    <>
-      <Helmet title="Page Not Found" />
+    <div className="min-h-screen flex flex-col">
       <Header />
-      <h1>404 - Page Not Found</h1>
+      <main className="flex-1">
+        <Helmet title="Page Not Found" />
+        <h1>404 - Page Not Found</h1>
+      </main>
       <Footer />
-    </>
+    </div>
   )
 }
