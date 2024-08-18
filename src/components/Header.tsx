@@ -1,11 +1,13 @@
 import { Amphora } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
 
+import { Routes } from '@/routes'
+
 export function Header() {
   const navigate = useNavigate()
 
   function handleLogoClick() {
-    navigate('/')
+    navigate(Routes.DASHBOARD)
   }
 
   return (
