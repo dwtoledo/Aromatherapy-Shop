@@ -1,2 +1,2 @@
-# Aromatherapy-Shop
-Aromatherapy Shop Dashboards
+# Aromatherapy.shop
+Aromatherapy.shop Dashboards

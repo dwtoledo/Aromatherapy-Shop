@@ -3,7 +3,7 @@ export function Footer() {
 
   return (
     <footer>
-      <span>Partner panel © Aromatherapy Shop - {currentYear}</span>
+      <span>Partner panel © <b>aromatherapy</b>.shop - {currentYear}</span>
     </footer>
   )
 }
