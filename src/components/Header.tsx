@@ -3,6 +3,7 @@ import { Amphora, ChartSpline, Home } from 'lucide-react'
 import { Routes } from '@/routes'
 
 import { NavLink } from './NavLink'
+import { ThemeToggle } from './theme/ThemeToggle'
 
 export function Header() {
   return (
@@ -22,6 +23,7 @@ export function Header() {
           <ChartSpline />
           Orders
         </NavLink>
+        <ThemeToggle />
       </nav>
     </header>
   )
