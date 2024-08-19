@@ -1,5 +1,4 @@
 import { Amphora, ChartSpline, Home } from 'lucide-react'
-import { Link } from 'react-router-dom'
 
 import { Routes } from '@/routes'
 
