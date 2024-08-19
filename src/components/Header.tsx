@@ -1,25 +1,28 @@
-import { Amphora } from 'lucide-react'
-import { useNavigate } from 'react-router-dom'
+import { Amphora, ChartSpline, Home } from 'lucide-react'
+import { Link } from 'react-router-dom'
 
 import { Routes } from '@/routes'
 
+import { NavLink } from './NavLink'
+
 export function Header() {
-  const navigate = useNavigate()
-
-  function handleLogoClick() {
-    navigate(Routes.DASHBOARD)
-  }
-
   return (
     <header>
+
+      <div className="flex items-center gap-2">
+        <Amphora />
+        <span><b>aromatherapy</b>.shop</span>
+      </div>
+
       <nav>
-        <span
-          className="flex items-center gap-1 hover:cursor-pointer"
-          onClick={handleLogoClick}
-        >
-          <Amphora />
-          Aromatherapy Shop
-        </span>
+        <NavLink to={Routes.DASHBOARD}>
+          <Home />
+          Home
+        </NavLink>
+        <NavLink to={Routes.ORDERS}>
+          <ChartSpline />
+          Orders
+        </NavLink>
       </nav>
     </header>
   )
