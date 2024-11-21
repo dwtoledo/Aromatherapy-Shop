@@ -24,10 +24,9 @@ export function SignIn() {
 
   async function handleSignIn(data: SignInForm) {
     try {
-      console.log(data)
       await new Promise((resolve) => setTimeout(resolve, 2000))
       // TODO - Implement SignIn HTTP Request
-      toast.success('We send an authentication link to your e-mail.')
+      toast.success('We sent an authentication link to your e-mail.')
     } catch {
       toast.error('Error, please contact your system administrator.')
     }
