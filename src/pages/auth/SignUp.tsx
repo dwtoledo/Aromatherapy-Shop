@@ -14,7 +14,6 @@ const signUpForm = z.object({
   storePhone: z.string(),
   managerName: z.string(),
   managerEmail: z.string().email(),
-
 })
 
 type SignUpForm = z.infer<typeof signUpForm>
@@ -30,12 +29,11 @@ export function SignUp() {
 
   async function handleSignUp(data: SignUpForm) {
     try {
-      console.log(data)
       await new Promise((resolve) => setTimeout(resolve, 2000))
       // TODO - Implement Login HTTP Request
       toast.success('Account created successfully!', {
         action: {
-          label: 'Login now!',
+          label: 'Login',
           onClick: () => navigate(Routes.SIGNIN),
         },
       })
