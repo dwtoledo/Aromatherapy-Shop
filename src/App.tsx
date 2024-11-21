@@ -7,11 +7,11 @@ import { router } from './routes'
 
 export function App() {
   return (
-    <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
+    <ThemeProvider storageKey="aroma-therapy-shop-theme">
       <HelmetProvider>
         <Helmet titleTemplate="%s | aromatherapy.shop" />
         <RouterProvider router={router} />
-        <Toaster richColors />
+        <Toaster richColors closeButton />
       </HelmetProvider>
     </ThemeProvider>
   )
