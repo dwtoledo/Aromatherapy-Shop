@@ -55,7 +55,7 @@ export function OrdersTable() {
           <TableHead>Total</TableHead>
           <TableHead>
             <div className="flex gap-2 items-center">
-              <ArrowRight />
+              <ArrowRight size={18} />
               <span>Next Step</span>
             </div>
 
@@ -80,10 +80,10 @@ export function OrdersTable() {
               <TableCell>{order.total}</TableCell>
               <TableCell>
                 <Button
-                  className="flex gap-2 items-center"
+                  className="flex gap-1 items-center justify-between w-max"
                   onClick={() => handleNextStepClick(order.id)}
                 >
-                  <ArrowRight />
+                  <ArrowRight size={18} className="flex-shrink-0" />
                   <span>Approve</span>
                 </Button>
               </TableCell>
@@ -91,14 +91,14 @@ export function OrdersTable() {
                 <Button
                   onClick={() => handleOrderDetailsClick(order.id)}
                 >
-                  <Search />
+                  <Search size={18} />
                 </Button>
               </TableCell>
               <TableCell>
                 <Button
                   onClick={() => handleCancelOrderClick(order.id)}
                 >
-                  <X />
+                  <X size={18} />
                 </Button>
               </TableCell>
             </TableRow>
