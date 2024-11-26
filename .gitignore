@@ -15,6 +15,9 @@ dist-ssr
 # JSON-Server
 db.json
 
+# ENV file
+.env
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
