@@ -4,48 +4,37 @@ import { Button } from '@/components/ui/button'
 import {
   Table,
   TableBody,
-  TableCaption,
   TableCell,
   TableHead,
   TableHeader,
   TableRow,
 } from '@/components/ui/table'
-import { Order, OrderStatusType } from '@/models/Order'
+import { Order } from '@/models/Order'
+
 import { OrderStatusIndicator } from './OrderStatusIndicator'
 
-const mockedOrders: Array<Order> = [
-  {
-    customer: 'Douglas Toledo',
-    id: 'dyicetmnljq0nohzdqg4zaf1',
-    processedAt: '2024-08-22T19:00:10.546Z',
-    status: OrderStatusType.Pending,
-    total: 250,
-  },
-  {
-    customer: 'Alessandra Souza',
-    id: 'wh9rljx1pj86q1eev1j4ht1n',
-    processedAt: '2024-08-22T19:15:10.546Z',
-    status: OrderStatusType.Completed,
-    total: 199.99,
-  },
-]
+interface OrdersTableProps {
+  orders: Array<Order>
+}
 
-export function OrdersTable() {
+export function OrdersTable({ orders }: OrdersTableProps) {
   function handleNextStepClick(orderId: string) {
     // TODO - implement next step order
+    console.log(orderId)
   }
 
   function handleOrderDetailsClick(orderId: string) {
     // TODO - implement open order details
+    console.log(orderId)
   }
 
   function handleCancelOrderClick(orderId: string) {
     // TODO - implement cancel order
+    console.log(orderId)
   }
 
   return (
     <Table>
-      <TableCaption>A list of your recent orders.</TableCaption>
       <TableHeader>
         <TableRow>
           <TableHead>ID</TableHead>
@@ -65,7 +54,7 @@ export function OrdersTable() {
         </TableRow>
       </TableHeader>
       <TableBody>
-        {mockedOrders.map((order) => {
+        {orders.map((order) => {
           return (
             <TableRow key={order.id}>
               <TableCell>{order.id}</TableCell>
