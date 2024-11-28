@@ -1,3 +1,5 @@
+import { useState } from 'react'
+
 import {
   Pagination,
   PaginationContent,
@@ -20,11 +22,11 @@ interface PaginatorProps {
   next: number | null,
   last: number,
   pages: number,
-  onPageChange: (page: number | null) => void
+  onPageChange: (page: number | null, perPage: number) => void
   onPerPageChange: (perPage: number) => void
 }
 
-const defaultPerPagesValue = '10'
+const perPageOptions = [5, 10, 25, 50]
 
 export function Paginator({
   prev,
@@ -34,6 +36,8 @@ export function Paginator({
   onPageChange,
   onPerPageChange,
 }: PaginatorProps) {
+  const [perPage, setPerPage] = useState(perPageOptions[1])
+
   const pageIndex = prev
     ? prev + 1
     : 1
@@ -51,6 +55,11 @@ export function Paginator({
     }
   };
 
+  function handlePerPageChange(value: number) {
+    setPerPage(value)
+    onPerPageChange(value)
+  }
+
   const visiblePages = getVisiblePages()
 
   function getLastPaginationItem() {
@@ -61,7 +70,7 @@ export function Paginator({
         </PaginationItem>
         <PaginationItem key={last}>
           <PaginationLink
-            onClick={() => onPageChange(last)}
+            onClick={() => onPageChange(last, perPage)}
           >
             {last}
           </PaginationLink>
@@ -78,31 +87,34 @@ export function Paginator({
           Items per page:
         </span>
         <Select
-          defaultValue={defaultPerPagesValue}
-          onValueChange={(perPage) => onPerPageChange(Number(perPage))}
+          defaultValue={perPage.toString()}
+          onValueChange={(value) => handlePerPageChange(Number(value))}
         >
-          <SelectTrigger className="w-[60px]">
+          <SelectTrigger className="w-[65px]">
             <SelectValue />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="5">5</SelectItem>
-            <SelectItem value="10">10</SelectItem>
-            <SelectItem value="20">20</SelectItem>
-            <SelectItem value="50">50</SelectItem>
+            {perPageOptions.map(option => {
+              return (
+                <SelectItem key={option} value={option.toString()}>
+                  {option}
+                </SelectItem>
+              )
+            })}
           </SelectContent>
         </Select>
 
         <PaginationItem>
           <PaginationPrevious
             disabled={prev === null}
-            onClick={() => onPageChange(prev)}
+            onClick={() => onPageChange(prev, perPage)}
           />
         </PaginationItem>
         {visiblePages.map(page => {
           return (
             <PaginationItem key={page}>
               <PaginationLink
-                onClick={() => onPageChange(page)}
+                onClick={() => onPageChange(page, perPage)}
                 disabled={pageIndex === page}
               >
                 {page}
@@ -116,7 +128,7 @@ export function Paginator({
         <PaginationItem>
           <PaginationNext
             disabled={next === null}
-            onClick={() => onPageChange(next)}
+            onClick={() => onPageChange(next, perPage)}
           />
         </PaginationItem>
       </PaginationContent>
